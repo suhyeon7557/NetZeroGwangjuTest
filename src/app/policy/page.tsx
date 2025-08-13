@@ -33,7 +33,7 @@ export default function PolicyDashboard(): React.ReactElement {
           current: 72,
           children: [
             { 
-              name: "재생에너지비율", 
+              name: "재생에너지비중", 
               size: 35, 
               unit: "%", 
               value: 72,
@@ -42,7 +42,7 @@ export default function PolicyDashboard(): React.ReactElement {
               lawData: "신에너지 및 재생에너지 개발·이용·보급 촉진법"
             },
             { 
-              name: "전력효율", 
+              name: "태양광 자가발전 비율", 
               size: 25, 
               unit: "kWh/원", 
               value: 68,
@@ -51,14 +51,23 @@ export default function PolicyDashboard(): React.ReactElement {
               lawData: "에너지이용 합리화법"
             },
             { 
-              name: "그리드안정성", 
+              name: "1차 에너지 공급량 중 신재생에너지 비중", 
               size: 20, 
               unit: "%", 
               value: 78,
               description: "전력망 안정성 지수",
               trend: [70, 72, 74, 75, 76, 78],
               lawData: "전기사업법"
-            }
+            },
+            { 
+                name: "전력 자립도", 
+                size: 20, 
+                unit: "%", 
+                value: 78,
+                description: "전력망 안정성 지수",
+                trend: [70, 72, 74, 75, 76, 78],
+                lawData: "전기사업법"
+              }
           ]
         },
         {
