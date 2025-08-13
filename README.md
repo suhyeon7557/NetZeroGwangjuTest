@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This is a Next.js project.
 
-## Getting Started
-
-First, run the development server:
+## 개발 서버 실행
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+열기: http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+정책 대시보드 페이지: http://localhost:3000/policy
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## MCP: GitHub 연결
 
-## Learn More
+1) 패키지 설치 완료: `@modelcontextprotocol/server-github`
 
-To learn more about Next.js, take a look at the following resources:
+2) 실행
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+set GITHUB_TOKEN=ghp_xxx && npx -y @modelcontextprotocol/server-github
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+또는 `package.json` 스크립트 사용:
 
-## Deploy on Vercel
+```bash
+set GITHUB_TOKEN=ghp_xxx && npm run mcp:github
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3) Cursor 등 MCP 클라이언트 설정 예시
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```json
+{
+  "mcpServers": {
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_TOKEN": "ghp_***",
+        "GITHUB_REPOS": "suhyeon7557/NetZeroGwangjuTest"
+      }
+    }
+  }
+}
+```
+
+권장 스코프(읽기 전용 시작): `contents:read`, `metadata:read`, `issues:read`, `pull_requests:read`.
